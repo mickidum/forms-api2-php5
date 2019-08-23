@@ -1,0 +1,35 @@
+# Uncomment these three lines to CORSify your server for everyone.
+
+# Header set Access-Control-Allow-Origin "*"
+# Header set Access-Control-Allow-Methods "GET,PUT,POST,DELETE"
+# Header set Access-Control-Allow-Headers "Content-Type, Authorization"
+
+<FilesMatch "\.(ini|psd|log|sh|csv|json|data|settings|env)$">
+Order allow,deny
+Deny from all
+</FilesMatch>
+
+<FilesMatch "\.(css|flv|gif|htm|html|ico|jpe|jpeg|jpg|js|mp3|mp4|png|pdf|swf|txt)$">
+	<IfModule mod_expires.c>
+		ExpiresActive Off
+	</IfModule>
+	<IfModule mod_headers.c>
+		FileETag None
+		Header unset ETag
+		Header unset Pragma
+		Header unset Cache-Control
+		Header unset Last-Modified
+		Header set Pragma "no-cache"
+		Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+		Header set Expires "Thu, 1 Jan 1970 00:00:00 GMT"
+	</IfModule>
+</FilesMatch>
+
+# Disable directory browsing 
+Options -Indexes
+
+# Hide the contents of directories
+IndexIgnore *
+
+# Hide files of type .png, .zip, .jpg, .gif and .doc from listing
+IndexIgnore *.png *.zip *.jpg *.gif *.doc *

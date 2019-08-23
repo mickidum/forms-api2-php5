@@ -1,0 +1,26 @@
+.text-center {
+	text-align: center;
+}
+
+.scrollable {
+	position: relative;
+	overflow-x: auto;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.1s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0
+}
+.error {
+	color: red;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
