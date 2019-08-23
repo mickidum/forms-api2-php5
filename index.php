@@ -16,6 +16,13 @@ if (file_exists('.env')) {
 		$create_env_string .= 'LOGIN=' . $login . "\r\n";
 		$create_env_string .= 'PASSWORD=' . $password . "\r\n";
 
+		$env = fopen('.env', 'w');
+		if(empty($env)) {
+			echo '<div class="error">Error, Unable to create .env file<br>Check files permisions</div>';
+			return;
+		}
+		fwrite($env, $create_env_string);
+
 		$request_uri = $request_path . 'crm';
 
 		$htaccess = '<IfModule mod_rewrite.c>' . "\r\n";

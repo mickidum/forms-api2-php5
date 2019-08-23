@@ -21,8 +21,9 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
-/api/*.json
+/api/**/*.json
 api/data/*.json
 api/settings/*.json
 .env
 crm/.htaccess
+api/form-list/*.json
