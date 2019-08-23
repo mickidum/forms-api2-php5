@@ -105,15 +105,15 @@ $app->post('/newlead', function (Request $request, Response $response, array $ar
   $form_list[] = $form_list_item;
 
   // LIST OF FORMS FILE CREATING
-  if (!file_exists('../forms-list/' . $form_list_file_name)) {
+  if (!file_exists('../formslist/' . $form_list_file_name)) {
 
-    $settings_file = fopen('../forms-list/' . $form_list_file_name, 'w');
+    $settings_file = fopen('../formslist/' . $form_list_file_name, 'w');
     $form_list_json = json_encode($form_list, JSON_UNESCAPED_UNICODE);
     fwrite($settings_file, $form_list_json);
     fclose($settings_file);
   } else {
 
-    $form_list_json = file_get_contents('../forms-list/' . $form_list_file_name);
+    $form_list_json = file_get_contents('../formslist/' . $form_list_file_name);
     $form_temp_array = json_decode($form_list_json, true);
 
     foreach ($form_temp_array as $index => $form) {
@@ -123,7 +123,7 @@ $app->post('/newlead', function (Request $request, Response $response, array $ar
     }
 
     array_push($form_temp_array, $form_list_item);
-    $settings_file = fopen('../forms-list/' . $form_list_file_name, 'w');
+    $settings_file = fopen('../formslist/' . $form_list_file_name, 'w');
     $form_list_json = json_encode($form_temp_array, JSON_UNESCAPED_UNICODE);
     fwrite($settings_file, $form_list_json);
     fclose($settings_file);
