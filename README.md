@@ -19,7 +19,7 @@ Two fields must be sent POST to '/forms-api2/api/leadsapi/newlead':
 
 ## Login
 
-- path to login: 'path-to-forms-api2/crm': \
+- path to login: 'path-to-forms-api2/crm'
 - For changing username and password just delete .env and Go to the forms-api2 folder.
 
 ## Contact Form 7 Example:
