@@ -1,6 +1,6 @@
 # Form API 2 for websites (version for PHP5 - PHP7.0)
 
-Download this repo and unzip \
+Download this repo, unzip and you can rename it \
 Upload this folder to your hosting(probably to public_html). \
 Follow to steps below.
 
