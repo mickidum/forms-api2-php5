@@ -18,7 +18,7 @@ Follow to steps below.
 Two fields must be sent POST to '/forms-api2/api/leadsapi/newlead':
 
 1. form_name_id -> "example_contact_form_name"
-2. event_name -> "Example contact form - homepage"
+2. form_name -> "Example contact form - homepage"
 
 ## Login
 
@@ -32,15 +32,15 @@ Consider your site is 'your-domain-name.com' and 'forms-api2' folder is located 
 In wordpress admin Contact form tab insert tags:
 
 [hidden form_name_id "my_site_contacts_big_form"] \
-[hidden event_name "My very big form on contacts page"]
+[hidden form_name "My very big form on contacts page"]
 
 ### Add javascript hook to your 'js' file (wordpress):
 
 <pre>
-var host = location.origin;
+var host = window.location.origin;
 jQuery('.wpcf7').on('wpcf7mailsent', function(event) {
 	var inputs = event.detail.inputs;
-	jQuery.post(host + '/forms-api/api/api.php', inputs, function(data) {});
+	jQuery.post(host + '/forms-api2/api/leadsapi/newlead', inputs, function(data) {});
 });
 </pre>
 
